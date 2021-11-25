@@ -1,0 +1,13 @@
+{
+  "name": "doublylinkedlist",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Comparator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
