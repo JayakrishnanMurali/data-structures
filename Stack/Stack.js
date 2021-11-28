@@ -1,30 +1,26 @@
 import Nodes from "./Nodes.js";
 
-class Queue {
+class Stack {
   constructor() {
     this.head = null;
     this.tail = null;
   }
 
-  enqueue(value) {
-    const newNode = new Nodes(value);
+  push(value) {
+    const newNode = new Nodes(value, this.head);
+    this.head = newNode;
 
-    if (!this.head) {
-      this.head = newNode;
+    if (!this.tail) {
       this.tail = newNode;
     }
-
-    this.tail.next = newNode;
-    this.tail = newNode;
 
     return this;
   }
 
-  dequeue() {
+  pop() {
     if (!this.head) {
       return null;
     }
-
     const deletedNode = this.head;
 
     if (this.head.next) {
@@ -38,13 +34,13 @@ class Queue {
   }
 }
 
-var q = new Queue();
+var stack = new Stack();
 
-q.enqueue(12);
-q.enqueue(22);
+stack.push(12);
+stack.push(22);
 
-console.log(q);
+console.log(stack);
 
-console.log("Deleted Node:", q.dequeue());
+console.log("Deleted Node:", stack.pop());
 
-console.log(q);
+console.log(stack);
