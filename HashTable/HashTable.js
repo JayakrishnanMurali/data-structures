@@ -45,15 +45,48 @@ class HashTable {
     }
     return null;
   }
+
+  get(key) {
+    const bucketLinkedList = this.buckets[this.hash(key)];
+    const node = bucketLinkedList.find({
+      callback: (nodeValue) => nodeValue.key === key,
+    });
+
+    return node ? node.value.value : undefined;
+  }
+
+  has(key) {
+    return Object.hasOwnProperty.call(this.keys, key);
+  }
+
+  getKeys() {
+    return Object.keys(this.keys);
+  }
+  getValues() {
+    return this.buckets.reduce((values, bucket) => {
+      const bucketValues = bucket
+        .toArray()
+        .map((linkedListNodes) => linkedListNodes.value.value);
+      return values.concat(bucketValues);
+    }, []);
+  }
 }
 
 var hash = new HashTable();
 
 hash.set("Hello", "World!!");
 hash.set("Hello", "Check");
-hash.set("Yo", "hhhahaha");
+hash.set("Test", "hahaha");
+hash.set("Man", "boy");
+hash.set("Girl", "Women");
+hash.set("Food", "LoL");
 
 console.log(hash);
-console.log("Delted: ", hash.delete("Yo"));
+console.log("Delted: ", hash.delete("Test"));
 
+console.log("Got it:", hash.get("Hello"));
 console.log(hash);
+
+console.log("Keys: ", hash.getKeys());
+
+console.log("Final: ", hash.getValues());
