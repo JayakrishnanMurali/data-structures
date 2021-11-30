@@ -75,17 +75,17 @@ class HashTable {
 var hash = new HashTable();
 
 hash.set("Hello", "World!!");
-hash.set("Hello", "Check");
+hash.set("@", "Goal");
 hash.set("Test", "hahaha");
 hash.set("Man", "boy");
 hash.set("Girl", "Women");
 hash.set("Food", "LoL");
 
 console.log(hash);
-console.log("Delted: ", hash.delete("Test"));
+console.log("Delted: ", hash.delete("@"));
 
-console.log("Got it:", hash.get("Hello"));
-console.log(hash);
+console.log("Got it:", hash.get("Test"));
+// console.log(hash);
 
 console.log("Keys: ", hash.getKeys());
 
